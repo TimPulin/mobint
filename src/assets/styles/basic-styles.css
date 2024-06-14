@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Segoe UI';
+  src:
+    local('Segoe UI'),
+    url('@/assets/fonts/SegoeUIRegular/SegoeUIRegular.woff') format('woff'),
+    url('@/assets/fonts/SegoeUIRegular/SegoeUIRegular.eot') format('eot'),
+    url('@/assets/fonts/SegoeUIRegular/SegoeUIRegular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  src:
+    local('Segoe UI'),
+    url('@/assets/fonts/SegoeUIBold/SegoeUIBold.woff') format('woff'),
+    url('@/assets/fonts/SegoeUIBold/SegoeUIBold.eot') format('eot'),
+    url('@/assets/fonts/SegoeUIBold/SegoeUIBold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* colors */
+  --color-white: #ffffff;
+  --color-black: #1a1a1a;
+  --color-red: #ff3044;
+  --color-blue: #2688eb;
+  --color-dark-grey: #949494;
+  --color-light-grey: #efefef;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-light-grey);
+}
+
+.container {
+  margin: 0 auto;
+  padding-inline: 20px;
+  max-width: 998px;
+}

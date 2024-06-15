@@ -16,6 +16,8 @@ export function getCards(offset: number, limit: number) {
   return response;
 }
 
+// NOTE это мок сделал на время
+
 const response: ServerResponse = {
   companies: [
     {

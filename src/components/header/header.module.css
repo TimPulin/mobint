@@ -1,13 +1,26 @@
 /* TODO  z-index */
 .header {
-  margin-inline: -20px;
-  padding-block: max(4vw, 0.4rem);
+  position: sticky;
+  left: 0;
+  width: 100vw;
+  padding-top: 1.5vw;
+  padding-bottom: 4vw;
+  margin-inline: calc(var(--margin-base) * -1);
+  padding-inline: var(--margin-base);
   background-color: var(--color-white);
+
+  text-align: center;
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
 }
 
 .title {
   margin: 0;
-  font-size: var(--size-title);
   text-align: center;
+  font-size: var(--size-title);
   color: var(--color-blue);
 }

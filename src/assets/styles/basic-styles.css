@@ -32,13 +32,12 @@
   --color-light-grey: #efefef;
 
   /* sizes */
-  --size-title: max(10vw, 2rem);
+  --size-title: 8vw;
   --margin-base: 4vw;
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  line-height: 1;
   background-color: var(--color-light-grey);
 }
 

@@ -1,3 +1,4 @@
+/* TODO  z-index */
 .header {
   margin-inline: -20px;
   padding-block: max(4vw, 0.4rem);
@@ -6,7 +7,7 @@
 
 .title {
   margin: 0;
-  font-size: max(10vw, 2rem);
+  font-size: var(--size-title);
   text-align: center;
   color: var(--color-blue);
 }

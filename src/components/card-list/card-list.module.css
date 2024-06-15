@@ -6,8 +6,8 @@
   gap: 20px;
 
   margin: 0;
+  margin-top: 18.5vw;
   padding: 0;
-  padding-top: var(--margin-base);
   list-style: none;
 }
 

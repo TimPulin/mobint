@@ -1,11 +1,11 @@
 /* TODO  z-index */
 .header {
-  position: sticky;
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100vw;
   padding-top: 1.5vw;
   padding-bottom: 4vw;
-  margin-inline: calc(var(--margin-base) * -1);
   padding-inline: var(--margin-base);
   background-color: var(--color-white);
 

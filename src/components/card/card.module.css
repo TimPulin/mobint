@@ -1,0 +1,91 @@
+.card {
+  --size-text1: 6vw;
+  --size-text2: 4vw;
+  --size-text3: 2vw;
+
+  --margin1: 4vw;
+  --margin2: 2vw;
+  --gap: 20vw;
+
+  width: 100%;
+  padding: var(--margin-base);
+  border-radius: 30px;
+  background-color: var(--color-white);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: var(--margin2);
+  margin-bottom: var(--margin-base);
+  border-bottom: 1px solid var(--color-light-grey);
+
+  font-size: var(--size-title);
+}
+
+.logo {
+  --size: 15vw;
+  width: var(--size);
+  height: var(--size);
+}
+
+.body {
+  margin-bottom: var(--margin2);
+}
+
+.linePoints {
+  margin-bottom: var(--margin-base);
+}
+
+.digitPoints {
+  padding-right: var(--margin2);
+  font-size: var(--size-text1);
+}
+
+.lettersPoints {
+  font-size: var(--size-text2);
+}
+
+.lineLevel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.titleLevel {
+  margin-bottom: var(--margin2);
+  font-size: var(--size-text3);
+}
+
+.valueLevel {
+  font-size: var(--size-text2);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap);
+
+  padding-top: var(--margin2);
+  border-top: 1px solid var(--color-light-grey);
+}
+
+.footer svg {
+  width: 4vw;
+  height: auto;
+  fill: red;
+}
+
+.btn {
+  flex-grow: 2;
+
+  padding-block: var(--margin2);
+  border: none;
+  border-radius: 10px;
+
+  font-size: var(--size-text2);
+}

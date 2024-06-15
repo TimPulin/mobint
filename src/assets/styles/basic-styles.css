@@ -30,16 +30,21 @@
   --color-blue: #2688eb;
   --color-dark-grey: #949494;
   --color-light-grey: #efefef;
+
+  /* sizes */
+  --size-title: max(10vw, 2rem);
+  --margin-base: 4vw;
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
+  line-height: 1;
   background-color: var(--color-light-grey);
 }
 
 .container {
   position: relative;
   margin: 0 auto;
-  padding-inline: 20px;
+  padding-inline: var(--margin-base);
   max-width: 998px;
 }

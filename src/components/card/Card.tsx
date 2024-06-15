@@ -23,7 +23,7 @@ export default function Card(props: CardPropsType) {
   return (
     <div style={dynamicStyles} className={styles.card}>
       <div className={styles.header}>
-        <div>{company.mobileAppDashboard.companyName}</div>
+        <h2 className={styles.cardTitle}>{company.mobileAppDashboard.companyName}</h2>
         <div>
           <img className={styles.logo} src={company.mobileAppDashboard.logo} alt="Card logo" />
         </div>

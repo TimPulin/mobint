@@ -19,9 +19,12 @@
   align-items: center;
 
   padding-bottom: var(--margin2);
-  margin-bottom: var(--margin-base);
-  border-bottom: 1px solid var(--color-light-grey);
+  margin-bottom: 3vw;
+  border-bottom: 1px solid var(--color-highlight-text);
+}
 
+.cardTitle {
+  padding-bottom: 1vw;
   font-size: var(--size-title);
   color: var(--color-card-background);
 }
@@ -61,7 +64,6 @@
 }
 
 .titleLoyalty {
-  margin-bottom: var(--margin2);
   font-size: var(--size-text3);
   color: var(--color-highlight-text);
 }
@@ -78,7 +80,7 @@
   gap: var(--gap);
 
   padding-top: var(--margin2);
-  border-top: 1px solid var(--color-light-grey);
+  border-top: 1px solid var(--color-highlight-text);
 }
 
 .footer svg {
@@ -97,7 +99,8 @@
 .btn {
   flex-grow: 2;
 
-  padding-block: var(--margin2);
+  padding-top: 1vw;
+  padding-bottom: 2vw;
   border: none;
   border-radius: 10px;
 

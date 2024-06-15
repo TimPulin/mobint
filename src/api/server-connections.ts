@@ -1,8 +1,8 @@
-import Header from '@/components/header/Header';
 import { mobintAPI } from './axios-instance';
+import { ServerResponse } from '@/types/server-types';
 
 export function getCards(offset: number, limit: number) {
-  mobintAPI.post('getAllCompaniesIdeal', {
+  mobintAPI.post<any, ServerResponse>('getAllCompaniesIdeal', {
     headers: {
       TOKEN: 123,
       'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ export function getCards(offset: number, limit: number) {
   return response;
 }
 
-const response = {
+const response: ServerResponse = {
   companies: [
     {
       company: {
@@ -43,6 +43,7 @@ const response = {
         accentColor: '#773A25',
       },
     },
+
     {
       company: {
         companyId: '91477309-b794-4ba5-a26c-9c924a781e72',

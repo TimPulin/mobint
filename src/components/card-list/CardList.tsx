@@ -1,12 +1,21 @@
+import { CompanyInstance } from '@/stores/companies-store';
 import Card from '../card/Card';
 import styles from './card-list.module.css';
 
-export default function CardList() {
+type CardListPropsType = {
+  companyList: CompanyInstance[];
+};
+
+export default function CardList(props: CardListPropsType) {
+  const { companyList } = props;
+
   return (
     <ul className={styles.list}>
-      <li className={styles.item}>
-        <Card />
-      </li>
+      {companyList.map((item) => (
+        <li className={styles.item} key={item.company.companyId}>
+          <Card company={item} />
+        </li>
+      ))}
     </ul>
   );
 }

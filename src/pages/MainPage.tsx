@@ -1,24 +1,16 @@
-import { observer } from 'mobx-react-lite';
-import splashStore from '@/stores/splash-store';
-
-import Splash from '@components/splash/Splash';
-import Header from '@components/header/Header';
-import Loader from '@components/loader/Loader';
-import { useEffect } from 'react';
 import CardList from '@/components/card-list/CardList';
+import companiesStore from '@/stores/companies-store';
 
-const MainPage = observer(() => {
-  useEffect(() => {
-    splashStore.updateIsShow(true);
-  }, []);
+export default function MainPage() {
+  const companyList = companiesStore.companies;
+
+  if (companyList.length === 0 && !companiesStore.isLoading) {
+    return <div>Нет компаний</div>;
+  }
+
   return (
     <>
-      <Header />
-      <CardList />
-      <Loader isShow={false} />
-      <Splash isShow={splashStore.isShow} />
+      <CardList companyList={companyList} />
     </>
   );
-});
-
-export default MainPage;
+}

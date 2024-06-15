@@ -1,31 +1,41 @@
+import { CompanyInstance } from '@/stores/companies-store';
 import EyeIcon from '../icons/EyeIcon';
 import TrashIcon from '../icons/TrashIcon';
 import styles from './card.module.css';
-import Logo from '@/assets/img/logo.png';
 
-export default function Card() {
+type CardPropsType = {
+  company: CompanyInstance;
+};
+
+export default function Card(props: CardPropsType) {
+  const { company } = props;
+
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        <div>Title</div>
+        <div>{company.mobileAppDashboard.companyName}</div>
         <div>
-          <img className={styles.logo} src={Logo} alt="Card logo" />
+          <img className={styles.logo} src={company.mobileAppDashboard.logo} alt="Card logo" />
         </div>
       </div>
       <div className={styles.body}>
         <div className={styles.linePoints}>
-          <span className={styles.digitPoints}>200</span>
-          <span className={styles.lettersPoints}>points</span>
+          <span className={styles.digitPoints}>{company.customerMarkParameters.mark}</span>
+          {/* TODO динамическое окончание слова баллы */}
+          <span className={styles.lettersPoints}>балла</span>
         </div>
 
-        <div className={styles.lineLevel}>
+        <div className={styles.loyalty}>
           <div>
-            <div className={styles.titleLevel}>Level</div>
-            <div className={styles.valueLevel}>1</div>
+            <div className={styles.titleLoyalty}>Кешбэк</div>
+            {/* TODO вычислить кешбэк */}
+            <div className={styles.valueLoyalty}>1</div>
           </div>
           <div>
-            <div className={styles.titleLevel}>Level</div>
-            <div className={styles.valueLevel}>1</div>
+            <div className={styles.titleLoyalty}>Уровень</div>
+            <div className={styles.valueLoyalty}>
+              {company.customerMarkParameters.loyaltyLevel.name}
+            </div>
           </div>
         </div>
       </div>

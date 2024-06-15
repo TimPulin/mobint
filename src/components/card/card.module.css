@@ -29,6 +29,7 @@
   --size: 15vw;
   width: var(--size);
   height: var(--size);
+  border-radius: 50%;
 }
 
 .body {
@@ -48,19 +49,20 @@
   font-size: var(--size-text2);
 }
 
-.lineLevel {
+/* loyalty */
+.loyalty {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: var(--gap);
 }
 
-.titleLevel {
+.titleLoyalty {
   margin-bottom: var(--margin2);
   font-size: var(--size-text3);
 }
 
-.valueLevel {
+.valueLoyalty {
   font-size: var(--size-text2);
 }
 

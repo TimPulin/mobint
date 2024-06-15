@@ -7,6 +7,7 @@
   padding-top: 4vw;
 }
 
+/* TODO добавить тень */
 .loader {
   width: 20vw;
   height: 20vw;
@@ -25,11 +26,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
-
-.text {
-  margin: 0;
-  padding: 0;
-  font-size: 6vw;
-  color: var(--color-black);
 }

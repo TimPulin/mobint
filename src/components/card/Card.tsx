@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { CompanyInstance } from '@/stores/companies-store';
 import EyeIcon from '../icons/EyeIcon';
 import TrashIcon from '../icons/TrashIcon';
@@ -10,8 +11,17 @@ type CardPropsType = {
 export default function Card(props: CardPropsType) {
   const { company } = props;
 
+  const dynamicStyles: CSSProperties & { [key: string]: string } = {
+    '--color-background': company.mobileAppDashboard.backgroundColor,
+    '--color-main': company.mobileAppDashboard.mainColor,
+    '--color-card-background': company.mobileAppDashboard.cardBackgroundColor,
+    '--color-text': company.mobileAppDashboard.textColor,
+    '--color-highlight-text': company.mobileAppDashboard.highlightTextColor,
+    '--color-accent': company.mobileAppDashboard.accentColor,
+  };
+
   return (
-    <div className={styles.card}>
+    <div style={dynamicStyles} className={styles.card}>
       <div className={styles.header}>
         <div>{company.mobileAppDashboard.companyName}</div>
         <div>
@@ -41,9 +51,13 @@ export default function Card(props: CardPropsType) {
       </div>
 
       <div className={styles.footer}>
-        <EyeIcon />
+        <span className={styles.info}>
+          <EyeIcon />
+        </span>
 
-        <TrashIcon />
+        <span className={styles.trash}>
+          <TrashIcon />
+        </span>
 
         <button className={styles.btn}>Подробнее</button>
       </div>

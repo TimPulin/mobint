@@ -10,7 +10,7 @@
   width: 100%;
   padding: var(--margin-base);
   border-radius: 30px;
-  background-color: var(--color-white);
+  background-color: var(--color-background);
 }
 
 .header {
@@ -23,6 +23,7 @@
   border-bottom: 1px solid var(--color-light-grey);
 
   font-size: var(--size-title);
+  color: var(--color-card-background);
 }
 
 .logo {
@@ -43,10 +44,12 @@
 .digitPoints {
   padding-right: var(--margin2);
   font-size: var(--size-text1);
+  color: var(--color-card-background);
 }
 
 .lettersPoints {
   font-size: var(--size-text2);
+  color: var(--color-highlight-text);
 }
 
 /* loyalty */
@@ -60,10 +63,12 @@
 .titleLoyalty {
   margin-bottom: var(--margin2);
   font-size: var(--size-text3);
+  color: var(--color-highlight-text);
 }
 
 .valueLoyalty {
   font-size: var(--size-text2);
+  color: var(--color-card-background);
 }
 
 .footer {
@@ -79,7 +84,14 @@
 .footer svg {
   width: 4vw;
   height: auto;
-  fill: red;
+}
+
+.info {
+  fill: var(--color-text);
+}
+
+.trash {
+  fill: var(--color-main);
 }
 
 .btn {
@@ -90,4 +102,6 @@
   border-radius: 10px;
 
   font-size: var(--size-text2);
+  color: var(--color-text);
+  background-color: var(--color-accent);
 }

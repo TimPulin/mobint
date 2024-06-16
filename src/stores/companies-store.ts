@@ -34,9 +34,10 @@ const CompaniesStore = types
     _isLoading: types.boolean,
   })
   .actions((self) => ({
-    setCompanies(companies: Array<CompanyInstance>) {
-      self.companies.replace(companies);
+    addCompanies(companies: Array<CompanyInstance>) {
+      self.companies.push(...companies);
     },
+
     setIsLoading(isLoading: boolean) {
       self._isLoading = isLoading;
     },

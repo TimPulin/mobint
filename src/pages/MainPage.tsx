@@ -1,26 +1,45 @@
 import { observer } from 'mobx-react-lite';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import CardList from '@/components/card-list/CardList';
 import companiesStore from '@/stores/companies-store';
 import { getCards } from '@/api/server-connections';
 import MessageOnPage from '@/components/message-on-page/MessageOnPage';
+import { throttle } from '@/utils/throttle';
+
+const OFFSET_STEP = 10;
 
 const MainPage = observer(() => {
   const companyList = companiesStore.companies;
+  const currentOffsetRef = useRef(0);
 
-  async function getCardsLocal() {
-    companiesStore.setIsLoading(true);
+  async function getCardsLocal(currentOffset: number) {
+    try {
+      companiesStore.setIsLoading(true);
 
-    const response = await getCards(0, 5);
-    console.log(response);
+      const response = await getCards(currentOffset, 3);
+      companiesStore.addCompanies(response.data.companies);
 
-    companiesStore.setCompanies(response.companies);
-    companiesStore.setIsLoading(false);
+      console.log(response.data);
+      currentOffsetRef.current += OFFSET_STEP;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      companiesStore.setIsLoading(false);
+    }
+  }
+
+  function onScrollList() {
+    if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+      console.log('bottom');
+      if (!companiesStore.isLoading) getCardsLocal(currentOffsetRef.current);
+    }
   }
 
   useEffect(() => {
-    getCardsLocal();
+    if (!companiesStore.isLoading) getCardsLocal(0);
+    document.addEventListener('scroll', throttle(onScrollList, 1000));
+    return () => document.removeEventListener('scroll', throttle(onScrollList, 1000));
   }, []);
 
   if (companyList.length === 0 && !companiesStore.isLoading) {

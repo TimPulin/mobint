@@ -1,6 +1,7 @@
 .text {
   margin: 0;
   padding: 0;
+  text-align: center;
   font-size: 6vw;
   color: var(--color-black);
 }

@@ -78,7 +78,9 @@ export default function Card(props: CardPropsType) {
           </ButtonBase>
         </span>
 
-        <button className={styles.btn}>Подробнее</button>
+        <button className={styles.btn} onClick={() => onShowClick('Подробнее')}>
+          Подробнее
+        </button>
       </div>
     </div>
   );

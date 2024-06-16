@@ -23,12 +23,37 @@ export default function Card(props: CardPropsType) {
     '--color-highlight-text': company.mobileAppDashboard.highlightTextColor,
     '--color-accent': company.mobileAppDashboard.accentColor,
   };
-  // TODO проверить
+
+  const Element = ({ btnName }: { btnName: string }) => {
+    return (
+      <div>
+        <div>Нажата кнопка: {btnName}</div>
+        <div>ИД Компании: {company.mobileAppDashboard.companyName}</div>
+      </div>
+    );
+  };
+
   const onShowClick = (btnName: string) => {
     bsModal.setContent({
-      text: `Нажата кнопка: ${btnName} \n ИД Компании: ${company.mobileAppDashboard.companyName}`,
+      text: '',
+      JSXElement: <Element btnName={btnName} />,
+      btnText: 'Хорошо',
     });
     bsModal.setShow(true);
+  };
+
+  const formatPointsWord = (num: number) => {
+    const numStr = String(num);
+    if (numStr.length > 1) {
+      if (['11', '12', '13', '14'].includes(numStr.slice(-2))) {
+        return 'баллов';
+      }
+    } else if (['2', '3', '4'].includes(numStr.slice(-1))) {
+      return 'балла';
+    } else if (numStr.slice(-1) === '1') {
+      return 'балл';
+    }
+    return 'баллов';
   };
 
   return (
@@ -42,8 +67,9 @@ export default function Card(props: CardPropsType) {
       <div className={styles.body}>
         <div className={styles.linePoints}>
           <span className={styles.digitPoints}>{company.customerMarkParameters.mark}</span>
-          {/* TODO динамическое окончание слова баллы */}
-          <span className={styles.lettersPoints}>балла</span>
+          <span className={styles.lettersPoints}>
+            {formatPointsWord(company.customerMarkParameters.mark)}
+          </span>
         </div>
 
         <div className={styles.loyalty}>

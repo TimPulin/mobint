@@ -13,11 +13,14 @@ export default function BSModal() {
     <Modal className={style.modal} show={bsModal.show} onHide={onHide}>
       <Modal.Body>
         <div className={style.body}>
-          <div>{bsModal.content.text}</div>
+          <div>
+            <span className={style.icon}>{bsModal.content.JSXElement}</span>
+            {bsModal.content.text}
+          </div>
         </div>
         <div className={style.footer}>
           <Button className={style.btn} onClick={onHide}>
-            Хорошо
+            {bsModal.content.btnText}
           </Button>
         </div>
       </Modal.Body>

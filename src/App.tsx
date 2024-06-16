@@ -25,7 +25,7 @@ export default function App() {
           <MessageOnPage text="Подгрузка компаний" />
         </Loader>
       </div>
-      <Splash isShow={splashStore.isShow} />
+      <Splash />
       <BSModal />
     </ModalProvider>
   );

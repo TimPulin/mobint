@@ -1,12 +1,13 @@
 .modal {
-  --bs-modal-border-radius: 20px;
+  --bs-border-radius-lg: 20px;
   --bs-modal-padding: 30px;
+  --bs-btn-padding-x: 40px;
 
   display: flex !important;
   align-items: center;
   justify-content: center;
 }
-/* TODO установить минимальную ширину */
+
 .body {
   margin-bottom: 20px;
   text-align: center;
@@ -19,5 +20,21 @@
 }
 
 .btn {
-  padding-inline: 40px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding-inline: 2rem !important;
+}
+
+.icon {
+  position: relative;
+  top: -1px;
+  padding-right: 10px;
+}
+
+.icon svg {
+  width: 20px;
+  height: auto;
+  fill: var(--color-red);
 }

@@ -8,6 +8,7 @@ import MessageOnPage from '@/components/message-on-page/MessageOnPage';
 import { throttle } from '@/utils/throttle';
 import { AxiosError } from 'axios';
 import { useBSModal } from '@/context/ModalContext';
+import { ExclamationIcon } from '@/components/icons/ExclamationIcon';
 
 const OFFSET_STEP = 10;
 
@@ -15,10 +16,6 @@ const MainPage = observer(() => {
   const bsModal = useBSModal();
   const companyList = companiesStore.companies;
   const currentOffsetRef = useRef(0);
-
-  // 1. Код ответа 401 – требуется вывести попап с текстом «ошибка авторизации»;
-  // 2. Код ответа 400 – требуется вывести попап с текстом message – из ответа с сервера;
-  // 3. Код ответа 500 – требуется вывести попап с текстом «все упало».
 
   async function getCardsLocal(currentOffset: number) {
     try {
@@ -33,16 +30,21 @@ const MainPage = observer(() => {
         if (error.response?.status === 401) {
           bsModal.setContent({
             text: 'Ошибка авторизации',
+            btnText: 'Принято',
           });
           bsModal.setShow(true);
         } else if (error.response?.status === 400) {
           bsModal.setContent({
             text: error.response.data.message,
+            btnText: 'Принято',
+            JSXElement: <ExclamationIcon />,
           });
           bsModal.setShow(true);
         } else if (error.response?.status === 500) {
           bsModal.setContent({
             text: 'Все упало',
+            btnText: 'Принято',
+            JSXElement: <ExclamationIcon />,
           });
           bsModal.setShow(true);
         }
@@ -54,7 +56,6 @@ const MainPage = observer(() => {
 
   function onScrollList() {
     if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
-      console.log('bottom');
       if (!companiesStore.isLoading) getCardsLocal(currentOffsetRef.current);
     }
   }

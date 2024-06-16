@@ -10,6 +10,8 @@ import Loader from './components/loader/Loader';
 import Splash from './components/splash/Splash';
 import companiesStore from './stores/companies-store';
 import MessageOnPage from './components/message-on-page/MessageOnPage';
+import BSModal from './components/bootstrap-modal/BSModal';
+import { ModalProvider } from './context/ModalContext';
 
 const App = observer(() => {
   async function getCardsLocal() {
@@ -25,14 +27,17 @@ const App = observer(() => {
   }, []);
 
   return (
-    <div className="container">
-      <Header />
-      <MainPage />
-      <Loader isShow={false}>
-        <MessageOnPage text="Подгрузка компаний" />
-      </Loader>
-      <Splash isShow={splashStore.isShow} />
-    </div>
+    <ModalProvider>
+      <div className="container">
+        <Header />
+        <MainPage />
+        <Loader isShow={false}>
+          <MessageOnPage text="Подгрузка компаний" />
+        </Loader>
+        <Splash isShow={splashStore.isShow} />
+      </div>
+      <BSModal />
+    </ModalProvider>
   );
 });
 

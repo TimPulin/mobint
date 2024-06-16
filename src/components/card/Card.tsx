@@ -1,8 +1,11 @@
 import { CSSProperties } from 'react';
 import { CompanyInstance } from '@/stores/companies-store';
+
 import EyeIcon from '../icons/EyeIcon';
 import TrashIcon from '../icons/TrashIcon';
+import ButtonBase from '../button/ButtonBase';
 import styles from './card.module.css';
+import { useBSModal } from '@/context/ModalContext';
 
 type CardPropsType = {
   company: CompanyInstance;
@@ -10,6 +13,7 @@ type CardPropsType = {
 
 export default function Card(props: CardPropsType) {
   const { company } = props;
+  const bsModal = useBSModal();
 
   const dynamicStyles: CSSProperties & { [key: string]: string } = {
     '--color-background': company.mobileAppDashboard.backgroundColor,
@@ -18,6 +22,14 @@ export default function Card(props: CardPropsType) {
     '--color-text': company.mobileAppDashboard.textColor,
     '--color-highlight-text': company.mobileAppDashboard.highlightTextColor,
     '--color-accent': company.mobileAppDashboard.accentColor,
+  };
+
+  const onShowClick = (btnName: string) => {
+    bsModal.setContent({
+      btnName: btnName,
+      companyId: company.company.companyId,
+    });
+    bsModal.setShow(true);
   };
 
   return (
@@ -52,11 +64,18 @@ export default function Card(props: CardPropsType) {
 
       <div className={styles.footer}>
         <span className={styles.info}>
-          <EyeIcon />
+          <ButtonBase
+            onClick={() => onShowClick('Посмотреть карточку')}
+            ariaLabel="Посмотреть карточку"
+          >
+            <EyeIcon />
+          </ButtonBase>
         </span>
 
         <span className={styles.trash}>
-          <TrashIcon />
+          <ButtonBase onClick={() => onShowClick('Удалить карточку')} ariaLabel="Удалить карточку">
+            <TrashIcon />
+          </ButtonBase>
         </span>
 
         <button className={styles.btn}>Подробнее</button>

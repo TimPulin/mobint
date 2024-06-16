@@ -3,7 +3,7 @@ import styles from './button.module.css';
 type ButtonBasePropsType = {
   text?: string;
   children?: React.ReactNode;
-  onClick?: () => void;
+  onClick: () => void;
   ariaLabel?: string;
   additionalClass?: string;
 };

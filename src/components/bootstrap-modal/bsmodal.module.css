@@ -1,0 +1,13 @@
+.body {
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--color-dark-grey);
+}
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding-inline: 40px;
+}

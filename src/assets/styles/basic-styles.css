@@ -41,6 +41,10 @@ body {
   background-color: var(--color-light-grey);
 }
 
+.main {
+  margin-top: 18.5vw;
+}
+
 .container {
   position: relative;
   margin: 0 auto;

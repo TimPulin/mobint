@@ -4,11 +4,10 @@ const BASE_URL = 'http://devapp.bonusmoney.pro/mobileapp/';
 
 const mobintAPI = axios.create({
   baseURL: BASE_URL,
-});
-
-mobintAPI.interceptors.response.use((request) => {
-  request.headers['Content-Type'] = 'application/json';
-  return request;
+  headers: {
+    TOKEN: '123',
+    'Content-Type': 'application/json',
+  },
 });
 
 export { mobintAPI };

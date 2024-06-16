@@ -23,6 +23,8 @@
 }
 
 :root {
+  /* bootstrap */
+
   /* colors */
   --color-white: #ffffff;
   --color-black: #1a1a1a;
@@ -34,11 +36,16 @@
   /* sizes */
   --size-title: 8vw;
   --margin-base: 4vw;
+  --container-max-width: 991px;
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--color-light-grey);
+}
+
+.body-lock {
+  overflow: hidden;
 }
 
 .main {
@@ -49,5 +56,9 @@ body {
   position: relative;
   margin: 0 auto;
   padding-inline: var(--margin-base);
-  max-width: 998px;
+  max-width: var(--container-max-width);
+}
+
+.modal .modal-dialog {
+  min-width: 50vw;
 }

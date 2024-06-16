@@ -4,7 +4,9 @@ type ModalContextType = {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   content: {
-    text: string;
+    text?: string;
+    btnText: string;
+    JSXElement?: React.ReactNode;
   };
   setContent: React.Dispatch<React.SetStateAction<ModalContextType['content']>>;
 };
@@ -14,6 +16,7 @@ const initialState = {
   setShow: () => {},
   content: {
     text: '',
+    btnText: '',
   },
   setContent: () => {},
 };
@@ -27,7 +30,7 @@ export const useBSModal = () => {
 export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
   const [show, setShow] = useState(false);
   const [content, setContent] = useState({
-    text: '',
+    btnText: '',
   });
   const state = useMemo(
     () => ({

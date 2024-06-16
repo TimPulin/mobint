@@ -1,4 +1,5 @@
-/* TODO - add animation, z-index */
+/* TODO - add animation */
+
 .splash {
   position: absolute;
   inset: 0;
@@ -7,6 +8,8 @@
   justify-content: center;
   height: 100vh;
   background-color: var(--color-white);
+
+  z-index: 1200;
 }
 
 .img {

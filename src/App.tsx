@@ -34,8 +34,8 @@ const App = observer(() => {
         <Loader isShow={false}>
           <MessageOnPage text="Подгрузка компаний" />
         </Loader>
-        <Splash isShow={splashStore.isShow} />
       </div>
+      <Splash isShow={splashStore.isShow} />
       <BSModal />
     </ModalProvider>
   );

@@ -3,6 +3,7 @@ import { CompanyInstance } from '@/stores/companies-store';
 import EyeIcon from '../icons/EyeIcon';
 import TrashIcon from '../icons/TrashIcon';
 import styles from './card.module.css';
+import ButtonBase from '../button/ButtonBase';
 
 type CardPropsType = {
   company: CompanyInstance;
@@ -52,11 +53,15 @@ export default function Card(props: CardPropsType) {
 
       <div className={styles.footer}>
         <span className={styles.info}>
-          <EyeIcon />
+          <ButtonBase ariaLabel="Посмотреть карточку">
+            <EyeIcon />
+          </ButtonBase>
         </span>
 
         <span className={styles.trash}>
-          <TrashIcon />
+          <ButtonBase ariaLabel="Удалить карточку">
+            <TrashIcon />
+          </ButtonBase>
         </span>
 
         <button className={styles.btn}>Подробнее</button>

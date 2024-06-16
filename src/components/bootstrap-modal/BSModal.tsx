@@ -13,8 +13,7 @@ export default function BSModal() {
     <Modal className={style.modal} show={bsModal.show} onHide={onHide}>
       <Modal.Body>
         <div className={style.body}>
-          <div>Нажата кнопка: {bsModal.content.btnName}</div>
-          <div>ИД компании: {bsModal.content.companyId}</div>
+          <div>{bsModal.content.text}</div>
         </div>
         <div className={style.footer}>
           <Button className={style.btn} onClick={onHide}>

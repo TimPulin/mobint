@@ -6,12 +6,19 @@ import companiesStore from '@/stores/companies-store';
 import { getCards } from '@/api/server-connections';
 import MessageOnPage from '@/components/message-on-page/MessageOnPage';
 import { throttle } from '@/utils/throttle';
+import { AxiosError } from 'axios';
+import { useBSModal } from '@/context/ModalContext';
 
 const OFFSET_STEP = 10;
 
 const MainPage = observer(() => {
+  const bsModal = useBSModal();
   const companyList = companiesStore.companies;
   const currentOffsetRef = useRef(0);
+
+  // 1. Код ответа 401 – требуется вывести попап с текстом «ошибка авторизации»;
+  // 2. Код ответа 400 – требуется вывести попап с текстом message – из ответа с сервера;
+  // 3. Код ответа 500 – требуется вывести попап с текстом «все упало».
 
   async function getCardsLocal(currentOffset: number) {
     try {
@@ -20,10 +27,26 @@ const MainPage = observer(() => {
       const response = await getCards(currentOffset, 3);
       companiesStore.addCompanies(response.data.companies);
 
-      console.log(response.data);
       currentOffsetRef.current += OFFSET_STEP;
     } catch (error) {
-      console.log(error);
+      if (error instanceof AxiosError) {
+        if (error.response?.status === 401) {
+          bsModal.setContent({
+            text: 'Ошибка авторизации',
+          });
+          bsModal.setShow(true);
+        } else if (error.response?.status === 400) {
+          bsModal.setContent({
+            text: error.response.data.message,
+          });
+          bsModal.setShow(true);
+        } else if (error.response?.status === 500) {
+          bsModal.setContent({
+            text: 'Все упало',
+          });
+          bsModal.setShow(true);
+        }
+      }
     } finally {
       companiesStore.setIsLoading(false);
     }

@@ -23,11 +23,10 @@ export default function Card(props: CardPropsType) {
     '--color-highlight-text': company.mobileAppDashboard.highlightTextColor,
     '--color-accent': company.mobileAppDashboard.accentColor,
   };
-
+  // TODO проверить
   const onShowClick = (btnName: string) => {
     bsModal.setContent({
-      btnName: btnName,
-      companyId: company.company.companyId,
+      text: `Нажата кнопка: ${btnName} \n ИД Компании: ${company.mobileAppDashboard.companyName}`,
     });
     bsModal.setShow(true);
   };

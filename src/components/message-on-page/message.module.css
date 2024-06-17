@@ -2,6 +2,6 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 6vw;
+  font-size: min(6vw, 60px);
   color: var(--color-black);
 }

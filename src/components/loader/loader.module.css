@@ -3,14 +3,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 2vw;
-  padding-top: 4vw;
+  row-gap: min(2vw, 20px);
+  padding-top: min(4vw, 40px);
 }
 
 /* TODO добавить тень */
 .loader {
-  width: 20vw;
-  height: 20vw;
+  width: min(20vw, 200px);
+  height: auto;
   border: 5px solid var(--color-black);
   border-bottom-color: transparent;
   border-radius: 50%;

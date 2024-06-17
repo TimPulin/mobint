@@ -3,17 +3,15 @@
   top: 0;
   left: 0;
   width: 100vw;
-  padding-top: 1.5vw;
-  padding-bottom: 4vw;
-  padding-inline: var(--margin-base);
+  padding-top: calc(var(--size-title) / 5.5);
+  padding-bottom: calc(var(--size-title) / 2.5);
+  padding-inline: var(--size-title);
   background-color: var(--color-white);
 
   text-align: center;
-  font-size: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 1000;
 }
 

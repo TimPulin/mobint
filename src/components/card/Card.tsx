@@ -22,6 +22,10 @@ export default function Card(props: CardPropsType) {
     '--color-text': company.mobileAppDashboard.textColor,
     '--color-highlight-text': company.mobileAppDashboard.highlightTextColor,
     '--color-accent': company.mobileAppDashboard.accentColor,
+    border:
+      company.mobileAppDashboard.backgroundColor.toLowerCase() === '#efefef'
+        ? '2px solid #fff'
+        : 'none',
   };
 
   const Element = ({ btnName }: { btnName: string }) => {

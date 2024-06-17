@@ -25,6 +25,7 @@ const MainPage = observer(() => {
 
       const response = await getCards(currentOffset, 3);
       companiesStore.addCompanies(response.data.companies);
+      console.log(response.data.companies[0]);
 
       currentOffsetRef.current += OFFSET_STEP;
     } catch (error) {

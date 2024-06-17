@@ -9,11 +9,13 @@ import { throttle } from '@/utils/throttle';
 import { AxiosError } from 'axios';
 import { useBSModal } from '@/context/ModalContext';
 import { ExclamationIcon } from '@/components/icons/ExclamationIcon';
+import { useLoader } from '@/context/LoaderContext';
 
 const OFFSET_STEP = 10;
 
 const MainPage = observer(() => {
   const bsModal = useBSModal();
+  const loader = useLoader();
   const companyList = companiesStore.companies;
   const currentOffsetRef = useRef(0);
 
@@ -65,6 +67,14 @@ const MainPage = observer(() => {
     document.addEventListener('scroll', throttle(onScrollList, 1000));
     return () => document.removeEventListener('scroll', throttle(onScrollList, 1000));
   }, []);
+
+  useEffect(() => {
+    if (companiesStore.isLoading) {
+      loader.setIsShow(true);
+    } else {
+      loader.setIsShow(false);
+    }
+  }, [companiesStore.isLoading]);
 
   if (companyList.length === 0 && !companiesStore.isLoading) {
     return (

@@ -1,11 +1,11 @@
 .card {
-  --size-text1: 6vw;
-  --size-text2: 4vw;
-  --size-text3: 2vw;
+  --size-text1: min(6vw, 60px);
+  --size-text2: min(4vw, 40px);
+  --size-text3: min(2vw, 20px);
 
   --margin1: 4vw;
   --margin2: 2vw;
-  --gap: 20vw;
+  --gap: min(20vw, 200px);
 
   width: 100%;
   padding: var(--margin-base);
@@ -30,9 +30,8 @@
 }
 
 .logo {
-  --size: 15vw;
-  width: var(--size);
-  height: var(--size);
+  width: min(15vw, 149px);
+  height: auto;
   border-radius: 50%;
 }
 
@@ -41,7 +40,7 @@
 }
 
 .linePoints {
-  margin-bottom: var(--margin-base);
+  margin-bottom: calc(var(--margin-base) - min(1vw, 10px));
 }
 
 .digitPoints {
@@ -84,7 +83,7 @@
 }
 
 .footer svg {
-  width: 4vw;
+  width: min(4vw, 40px);
   height: auto;
 }
 
@@ -99,8 +98,8 @@
 .btn {
   flex-grow: 2;
 
-  padding-top: 1vw;
-  padding-bottom: 2vw;
+  padding-top: min(1vw, 10px);
+  padding-bottom: min(2vw, 20px);
   border: none;
   border-radius: 10px;
 

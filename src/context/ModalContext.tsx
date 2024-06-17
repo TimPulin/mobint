@@ -23,9 +23,7 @@ const initialState = {
 
 const ModalContext = createContext<ModalContextType>(initialState);
 
-export const useBSModal = () => {
-  return useContext(ModalContext);
-};
+export const useBSModal = () => useContext(ModalContext);
 
 export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
   const [show, setShow] = useState(false);

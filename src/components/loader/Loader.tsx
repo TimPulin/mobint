@@ -1,11 +1,13 @@
+import { useLoader } from '@/context/LoaderContext';
 import styles from './loader.module.css';
 
 type LoaderPropsType = {
-  isShow: boolean;
   children?: React.ReactNode;
 };
 export default function Loader(props: LoaderPropsType) {
-  const { isShow, children } = props;
+  const { children } = props;
+
+  const { isShow } = useLoader();
 
   if (!isShow) return null;
 

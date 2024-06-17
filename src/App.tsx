@@ -10,6 +10,7 @@ import Header from './components/header/Header';
 import Loader from './components/loader/Loader';
 import Splash from './components/splash/Splash';
 import MessageOnPage from './components/message-on-page/MessageOnPage';
+import { LoaderProvider } from './context/LoaderContext';
 
 export default function App() {
   useEffect(() => {
@@ -18,15 +19,17 @@ export default function App() {
 
   return (
     <ModalProvider>
-      <div className="container">
-        <Header />
-        <MainPage />
-        <Loader isShow={false}>
-          <MessageOnPage text="Подгрузка компаний" />
-        </Loader>
-      </div>
-      <Splash />
-      <BSModal />
+      <LoaderProvider>
+        <div className="container">
+          <Header />
+          <MainPage />
+          <Loader>
+            <MessageOnPage text="Подгрузка компаний" />
+          </Loader>
+        </div>
+        <Splash />
+        <BSModal />
+      </LoaderProvider>
     </ModalProvider>
   );
 }
